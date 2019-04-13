@@ -245,7 +245,7 @@
                 "code-block"     : "代码块（多语言风格）",
                 table            : "添加表格",
                 datetime         : "日期时间",
-                emoji            : "Emoji表情",
+                // emoji            : "Emoji表情",
                 "html-entities"  : "HTML实体字符",
                 pagebreak        : "插入分页符",
                 "goto-line"      : "跳转到行",
@@ -255,8 +255,8 @@
                 fullscreen       : "全屏（按ESC还原）",
                 clear            : "清空",
                 search           : "搜索",
-                help             : "使用帮助",
-                info             : "关于" + editormd.title
+                // help             : "使用帮助",
+                // info             : "关于" + editormd.title
             },
             buttons : {
                 enter  : "确定",
@@ -4169,8 +4169,8 @@
     // 使用国外的CDN，加载速度有时会很慢，或者自定义URL
     // You can custom KaTeX load url.
     editormd.katexURL  = {
-        css : "//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min",
-        js  : "//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min"
+        css : "//www.saxing.cn/static/saxing/KaTeX/0.3.0/katex.min",
+        js  : "//www.saxing.cn/static/saxing/KaTeX/0.3.0/katex.min"
     };
     
     editormd.kaTeXLoaded = false;
