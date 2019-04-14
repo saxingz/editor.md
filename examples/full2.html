@@ -116,11 +116,13 @@
                 <button id="close-toolbar-btn">Hide toolbar</button>
                 <button id="toc-menu-btn">ToC Dropdown menu</button>
                 <button id="toc-default-btn">ToC default</button>
+                <button id="saxing-test">test</button>
+
             </div>
             <div id="test-editormd"></div>
         </div>
         <script src="js/jquery.min.js"></script>
-        <script src="../editormd.js"></script>   
+        <script src="../editormd.min.js"></script>
         <script type="text/javascript">
             var testEditor;
             
@@ -154,6 +156,9 @@
                         //dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
                         //dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
                         //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
+                        disabledKeyMaps : [
+                            "Ctrl-E" // disable some default keyboard shortcuts handle
+                        ],
                         imageUpload : false,
                         imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
                         imageUploadURL : "./php/upload.php",
@@ -188,8 +193,9 @@
                 });
                 
                 $("#get-html-btn").bind('click', function() {
-                    alert(testEditor.getHTML());
-                });                
+                    testEditor.getHTML();
+
+                });
                 
                 $("#watch-btn").bind('click', function() {
                     testEditor.watch();
@@ -225,6 +231,28 @@
                 $("#toc-default-btn").click(function() {
                     testEditor.config("tocDropdown", false);
                 });
+
+                $("#saxing-test").click(function () {
+                    console.log($(".editormd-preview").html());
+                    var text = $("#saxing-test")[0];
+                    if (document.body.createTextRange) {
+                        var range = document.body.createTextRange();
+                        range.moveToElementText(text);
+                        range.select();
+                    } else if (window.getSelection) {
+                        var selection = window.getSelection();
+                        var range = document.createRange();
+                        range.selectNodeContents(text);
+                        selection.removeAllRanges();
+                        selection.addRange(range);
+
+                    } else {
+                        alert("none");
+                    }
+                });
+
+
+
             });
         </script>
     </body>
